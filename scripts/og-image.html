@@ -1,0 +1,36 @@
+<!doctype html>
+<!-- Source for public/og-image.png. Render with scripts/og-image.sh. -->
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+  @font-face { font-family: "Geist Sans"; font-weight: 100 900; src: url("../public/fonts/geist-sans-variable.woff2") format("woff2"); }
+  * { margin: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    font-family: "Geist Sans", sans-serif;
+    color: #f5f5f5;
+    background:
+      radial-gradient(circle at 0% 0%, rgb(49 113 245 / 0.32), transparent 640px),
+      #0a0a0a;
+    position: relative;
+  }
+  .brand { position: absolute; left: 72px; top: 68px; display: flex; align-items: center; gap: 22px; }
+  .brand img { width: 48px; height: 48px; }
+  .brand span { font-size: 54px; font-weight: 600; letter-spacing: -0.02em; }
+  h1 { position: absolute; left: 72px; top: 210px; width: 560px; font-size: 64px; line-height: 1.06; font-weight: 600; letter-spacing: -0.035em; }
+  h1 i { font-style: normal; color: #3171f5; }
+  p { position: absolute; left: 72px; top: 400px; width: 520px; font-size: 26px; line-height: 1.5; color: #b0b0b0; }
+  .soon { position: absolute; left: 72px; top: 512px; display: inline-flex; align-items: center; gap: 10px; padding: 8px 18px; border-radius: 999px; font-size: 20px; font-weight: 500; color: #93b4ff; background: rgb(49 113 245 / 0.14); box-shadow: inset 0 0 0 1px rgb(49 113 245 / 0.4); }
+  .soon::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: #93b4ff; }
+  .shot { position: absolute; left: 660px; top: 92px; width: 720px; border-radius: 14px; box-shadow: 0 0 0 1px rgb(255 255 255 / 0.1), 0 30px 80px rgb(0 0 0 / 0.6); }
+</style>
+</head>
+<body>
+  <div class="brand"><img src="../public/favicon.svg" alt="" /><span>Owlee</span></div>
+  <h1>Keep an eye on everything you run<i>.</i></h1>
+  <p>Uptime, status pages, incidents, errors and analytics in one app.</p>
+  <div class="soon">Coming soon</div>
+  <img class="shot" src="../public/images/dashboard.png" alt="" />
+</body>
+</html>

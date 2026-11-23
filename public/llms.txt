@@ -1,0 +1,7 @@
+# Owlee by coolLabs
+
+Owlee is an open-source, self-hosted app for uptime monitoring, status pages, incidents, error tracking and cookieless web analytics. It is coming soon.
+
+- [Owlee](https://owlee.io/)
+- [Source code](https://github.com/coollabsio/owlee)
+- [Launch updates on X](https://x.com/heyandras)

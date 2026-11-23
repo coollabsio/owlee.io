@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Icon from "../components/Icon.astro";
-import { github } from "../data/links.js";
+import { github, x } from "../data/links.js";
 import Activity from "reicon/icons/Activity";
 import ArrowRight from "reicon/icons/ArrowRight";
 import ArrowUpRight from "reicon/icons/ArrowUpRight";
@@ -26,6 +26,17 @@ const features = [
 ---
 
 <Layout title="Owlee by coolLabs: open-source monitoring, status pages and error tracking">
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Owlee by coolLabs",
+    url: "https://owlee.io/",
+    description: "An open-source, self-hosted app for uptime monitoring, status pages, incidents, error tracking and web analytics. Coming soon.",
+    applicationCategory: "DeveloperApplication",
+    operatingSystem: "Linux",
+    license: "https://www.apache.org/licenses/LICENSE-2.0",
+    sameAs: github,
+  }).replace(/</g, "\\u003c")} />
   <section class="px-4">
     <a
       href="https://coollabs.io/philosophy?ref=owlee"
@@ -41,10 +52,11 @@ const features = [
     </h1>
     <p class="mx-auto mt-5 max-w-2xl text-base text-pretty text-fg-dim md:text-lg">
       Uptime, status pages, incidents, errors and analytics in one self-hosted app.
+      <span class="block font-medium text-brand-light">Coming soon. Follow along for the launch.</span>
     </p>
     <div class="mt-8 flex flex-wrap justify-center gap-3">
-      <a class="btn btn-primary btn-lg" href={github}>
-        Get started on GitHub <Icon icon={ArrowUpRight} class="size-4" />
+      <a class="btn btn-primary btn-lg" href={x} target="_blank" rel="noopener">
+        Get launch updates on X <Icon icon={ArrowUpRight} class="size-4" />
       </a>
       <a class="btn btn-neutral btn-lg" href="#features">See features</a>
     </div>
@@ -78,19 +90,12 @@ const features = [
     </div>
   </section>
 
-  <section id="self-host" class="mt-28 scroll-mt-20 px-4">
-    <p class="eyebrow">Self-host</p>
-    <h2 class="mt-2 text-2xl font-semibold tracking-tight text-fg md:text-3xl">Run it on your own server</h2>
-    <p class="mx-auto mt-3 max-w-xl text-sm text-fg-faint">One container. Your data stays with you.</p>
-    <div class="card mx-auto mt-8 max-w-xl p-4 text-left">
-      <pre class="overflow-x-auto font-mono text-sm leading-6 text-fg-dim"><span class="text-brand-light">$</span> docker run -d --name owlee -p 8080:8080 \
-    -v owlee-data:/var/lib/owlee \
-    -e OWLEE_APP_KEY="$OWLEE_APP_KEY" \
-    -e OWLEE_PUBLIC_ORIGIN=https://status.example.com \
-    ghcr.io/coollabsio/owlee:0.1.0</pre>
-    </div>
-    <a href={github} class="mt-6 inline-flex items-center gap-1 text-sm font-medium text-brand-light transition-colors hover:text-fg">
-      Install guide on GitHub <Icon icon={ArrowUpRight} class="size-3.5" />
+  <section id="coming-soon" class="mt-28 scroll-mt-20 px-4">
+    <p class="eyebrow">Coming soon</p>
+    <h2 class="mt-2 text-2xl font-semibold tracking-tight text-fg md:text-3xl">Owlee is almost ready</h2>
+    <p class="mx-auto mt-3 max-w-xl text-sm text-fg-faint">Follow along on X to know when it ships.</p>
+    <a class="btn btn-primary btn-lg mt-8" href={x} target="_blank" rel="noopener">
+      Follow @heyandras on X <Icon icon={ArrowUpRight} class="size-4" />
     </a>
   </section>
 </Layout>

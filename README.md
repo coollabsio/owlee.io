@@ -9,3 +9,5 @@ bun run build  # static output in dist/
 ```
 
 The Dockerfile builds the site and serves `dist/` with nginx.
+
+The social image `public/og-image.png` comes from `scripts/og-image.html`. Run `scripts/og-image.sh` to render it again.
