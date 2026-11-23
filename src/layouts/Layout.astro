@@ -10,7 +10,7 @@ export interface Props {
 
 const {
   title,
-  description = "Owlee is an open-source, self-hosted tool for uptime monitoring, status pages, incidents, error tracking and web analytics. Coming soon.",
+  description = "Open-source uptime monitoring, status pages, incidents, error tracking and web analytics. Coming soon.",
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname.replace(/(index)?\.html$/, "").replace(/\/$/, "") || "/", Astro.site).href;
