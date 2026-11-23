@@ -1,0 +1,96 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Icon from "../components/Icon.astro";
+import { github } from "../data/links.js";
+import Activity from "reicon/icons/Activity";
+import ArrowRight from "reicon/icons/ArrowRight";
+import ArrowUpRight from "reicon/icons/ArrowUpRight";
+import BellAlert from "reicon/icons/BellAlert";
+import Bug from "reicon/icons/Bug";
+import ChartLine from "reicon/icons/ChartLine";
+import Danger from "reicon/icons/Danger";
+import Globe from "reicon/icons/Globe";
+import Link from "reicon/icons/Link";
+import Package from "reicon/icons/Package";
+
+const features = [
+  { icon: Activity, title: "Uptime monitors", text: "HTTP and TCP checks, also from inside private networks." },
+  { icon: Globe, title: "Status pages", text: "Public pages with components and 90-day uptime bars." },
+  { icon: Danger, title: "Incidents", text: "Failures open an incident. Recovery resolves it." },
+  { icon: Bug, title: "Error tracking", text: "Point an official Sentry SDK at Owlee." },
+  { icon: ChartLine, title: "Web analytics", text: "Cookieless page views, events and Web Vitals." },
+  { icon: Link, title: "Short links", text: "Links on your own domain, with click counts." },
+  { icon: BellAlert, title: "Notifications", text: "Email, webhooks, Slack and Discord." },
+  { icon: Package, title: "One binary", text: "Rust server with SQLite or Postgres." },
+];
+---
+
+<Layout title="Owlee by coolLabs: open-source monitoring, status pages and error tracking">
+  <section class="px-4">
+    <a
+      href="https://coollabs.io/philosophy?ref=owlee"
+      class="inline-flex items-center gap-2 rounded-full bg-white/[0.04] px-3 py-1 text-xs text-fg-dim ring-1 ring-hairline transition-colors hover:bg-white/[0.07] hover:text-fg"
+    >
+      <span class="size-1.5 rounded-full bg-brand-light"></span>
+      Open source and free forever. Read our philosophy
+      <Icon icon={ArrowRight} class="size-3.5" />
+    </a>
+    <h1 class="mx-auto mt-6 max-w-3xl text-4xl font-semibold tracking-tight text-fg md:text-6xl">
+      <span class="block">Keep an eye on</span>
+      <span class="block">everything you run<span class="text-brand">.</span></span>
+    </h1>
+    <p class="mx-auto mt-5 max-w-2xl text-base text-pretty text-fg-dim md:text-lg">
+      Uptime, status pages, incidents, errors and analytics in one self-hosted app.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a class="btn btn-primary btn-lg" href={github}>
+        Get started on GitHub <Icon icon={ArrowUpRight} class="size-4" />
+      </a>
+      <a class="btn btn-neutral btn-lg" href="#features">See features</a>
+    </div>
+    <div class="relative mx-auto mt-16 max-w-5xl">
+      <div class="absolute -inset-x-10 -top-10 bottom-0 -z-10 rounded-full bg-brand/20 blur-3xl" aria-hidden="true"></div>
+      <img
+        src="/images/dashboard.png"
+        alt="Owlee dashboard with monitors and uptime"
+        width="1200"
+        height="680"
+        class="w-full rounded-xl ring-1 ring-hairline"
+      />
+    </div>
+  </section>
+
+  <section id="features" class="mt-28 scroll-mt-20 px-4">
+    <p class="eyebrow">Features</p>
+    <h2 class="mt-2 text-2xl font-semibold tracking-tight text-fg md:text-3xl">One app instead of five</h2>
+    <div class="mt-10 grid gap-4 text-left sm:grid-cols-2 lg:grid-cols-4">
+      {
+        features.map((f) => (
+          <div class="card p-5">
+            <div class="flex size-9 items-center justify-center rounded-md bg-brand/15 ring-1 ring-brand/40">
+              <Icon icon={f.icon} class="size-4 text-brand-light" />
+            </div>
+            <h3 class="mt-4 text-base font-medium text-fg">{f.title}</h3>
+            <p class="mt-1 text-[13px] leading-5 text-fg-faint">{f.text}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section id="self-host" class="mt-28 scroll-mt-20 px-4">
+    <p class="eyebrow">Self-host</p>
+    <h2 class="mt-2 text-2xl font-semibold tracking-tight text-fg md:text-3xl">Run it on your own server</h2>
+    <p class="mx-auto mt-3 max-w-xl text-sm text-fg-faint">One container. Your data stays with you.</p>
+    <div class="card mx-auto mt-8 max-w-xl p-4 text-left">
+      <pre class="overflow-x-auto font-mono text-sm leading-6 text-fg-dim"><span class="text-brand-light">$</span> docker run -d --name owlee -p 8080:8080 \
+    -v owlee-data:/var/lib/owlee \
+    -e OWLEE_APP_KEY="$OWLEE_APP_KEY" \
+    -e OWLEE_PUBLIC_ORIGIN=https://status.example.com \
+    ghcr.io/coollabsio/owlee:0.1.0</pre>
+    </div>
+    <a href={github} class="mt-6 inline-flex items-center gap-1 text-sm font-medium text-brand-light transition-colors hover:text-fg">
+      Install guide on GitHub <Icon icon={ArrowUpRight} class="size-3.5" />
+    </a>
+  </section>
+</Layout>
